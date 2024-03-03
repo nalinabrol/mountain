@@ -108,15 +108,18 @@
         }
 
         function spawnObstacle() {
-            const obstacleGeometry = new THREE.BoxGeometry(1, 1, 1);
-            const obstacleMaterial = new THREE.MeshLambertMaterial({ color: 0xff0000 });
-            const obstacle = new THREE.Mesh(obstacleGeometry, obstacleMaterial);
-            obstacle.castShadow = true;
-            obstacle.position.x = 20;
-            obstacle.position.y = 1;
-            obstacle.velocity = -0.1 - Math.random() * 0.2;
-            obstacles.push(obstacle);
-            scene.add(obstacle);
+            const gltfLoader = new THREE.GLTFLoader();
+            let obstacle;
+            gltfLoader.load('https://devday2.s3.ap-south-1.amazonaws.com/Duck.glb', function (gltf) {
+                obstacle = gltf.scene;
+                obstacle.position.set(0, 0.5, 0); // Set the initial position of the green cube
+                obstacle.castShadow = true;
+                obstacle.position.x = 20;
+                obstacle.position.y = 1;
+                obstacle.velocity = -0.1 - Math.random() * 0.2;
+                obstacles.push(obstacle);
+                scene.add(obstacle);
+            });            
 
             setTimeout(spawnObstacle, 2000);
         }
