@@ -219,6 +219,20 @@
 
         init();
         animate(0);
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+        var played = false;
+        function playAudio() {
+            if (!played) {
+                var audio = new Audio('https://devday2.s3.ap-south-1.amazonaws.com/Powerful(chosic.com).mp3');
+                audio.play().then(() => {
+                    played = true;
+                }).catch(error => console.error('Error trying to play audio:', error));
+            }
+        }
+
+        document.body.addEventListener('keydown', playAudio, { once: true });
+});
     </script>
 </body>
 
