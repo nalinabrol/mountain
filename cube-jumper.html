@@ -71,8 +71,9 @@
             const gltfLoader = new THREE.GLTFLoader();
             gltfLoader.load('https://devday2.s3.ap-south-1.amazonaws.com/tarisland_-_dragon_high_poly.glb', function (gltf) {
                 player = gltf.scene;
-                player.scale.set(0.15, 0.15, 0.15);
+                player.scale.set(0.08, 0.08, 0.08);
                 player.position.set(0, 0.5, 0); // Set the initial position of the green cube
+                player.rotation.y = Math.PI / 2; // Rotate the player by 90 degrees
                 scene.add(player);
             });
 
