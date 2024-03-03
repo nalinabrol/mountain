@@ -69,8 +69,9 @@
 
             // Player cube
             const gltfLoader = new THREE.GLTFLoader();
-            gltfLoader.load('https://devday2.s3.ap-south-1.amazonaws.com/Duck.glb', function (gltf) {
+            gltfLoader.load('https://devday2.s3.ap-south-1.amazonaws.com/tarisland_-_dragon_high_poly.glb', function (gltf) {
                 player = gltf.scene;
+                player.scale.set(0.15, 0.15, 0.15);
                 player.position.set(0, 0.5, 0); // Set the initial position of the green cube
                 scene.add(player);
             });
@@ -110,9 +111,10 @@
         function spawnObstacle() {
             const gltfLoader = new THREE.GLTFLoader();
             let obstacle;
-            gltfLoader.load('https://devday2.s3.ap-south-1.amazonaws.com/Duck.glb', function (gltf) {
+            gltfLoader.load('https://devday2.s3.ap-south-1.amazonaws.com/new_anime_vfx_red__black_ball.glb', function (gltf) {
                 obstacle = gltf.scene;
-                obstacle.position.set(0, 0.5, 0); // Set the initial position of the green cube
+                obstacle.scale.set(0.35, 0.35, 0.35); // Reduce the size of the obstacle
+                obstacle.position.set(0, 0, 0); // Set the initial position of the green cube
                 obstacle.castShadow = true;
                 obstacle.position.x = 20;
                 obstacle.position.y = 1;
@@ -120,7 +122,6 @@
                 obstacles.push(obstacle);
                 scene.add(obstacle);
             });            
-
             setTimeout(spawnObstacle, 2000);
         }
 
