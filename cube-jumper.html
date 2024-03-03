@@ -50,12 +50,12 @@
             // Skybox
             const loader = new THREE.CubeTextureLoader();
             const texture = loader.load([
-                'https://i.ibb.co/RSDJmr5/negx.jpg', // right
-                'https://i.ibb.co/JsVb51L/negy.jpg', // left
-                'https://i.ibb.co/jT0nFym/negz.jpg', // top
-                'https://i.ibb.co/ZG8gGjc/posx.jpg', // bottom
-                'https://i.ibb.co/cvVWQPf/posy.jpg', // front
-                'https://i.ibb.co/fvb0sV4/posz.jpg', // back
+                'https://devday2.s3.ap-south-1.amazonaws.com/SnowMountain/px.png', //  px
+                'https://devday2.s3.ap-south-1.amazonaws.com/SnowMountain/nx.png', //  nx
+                'https://devday2.s3.ap-south-1.amazonaws.com/SnowMountain/py.png', //  py
+                'https://devday2.s3.ap-south-1.amazonaws.com/SnowMountain/ny.png', //  ny
+                'https://devday2.s3.ap-south-1.amazonaws.com/SnowMountain/pz.png', //  pz
+                'https://devday2.s3.ap-south-1.amazonaws.com/SnowMountain/nz.png', //  nz
             ]);
             scene.background = texture;
 
@@ -69,9 +69,9 @@
 
             // Player cube
             const gltfLoader = new THREE.GLTFLoader();
-            gltfLoader.load('https://devday2.s3.ap-south-1.amazonaws.com/tarisland_-_dragon_high_poly.glb', function (gltf) {
+            gltfLoader.load('https://devday2.s3.ap-south-1.amazonaws.com/monkey_warrior.glb', function (gltf) {
                 player = gltf.scene;
-                player.scale.set(0.08, 0.08, 0.08);
+                player.scale.set(0.2, 0.2, 0.2);
                 player.position.set(0, 0.5, 0); // Set the initial position of the green cube
                 player.rotation.y = Math.PI / 2; // Rotate the player by 90 degrees
                 scene.add(player);
