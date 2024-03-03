@@ -160,21 +160,24 @@
                 }
             });
 
-            obstacles.forEach(obstacle => {
-                if (obstacle.position.distanceTo(player.position) < 1) {
-                    console.log('Collision Detected');
-                    lives -= 1;
-                    document.getElementById('lives').innerText = '❤️'.repeat(lives);
-                    scene.remove(obstacle);
-                    obstacles.splice(obstacles.indexOf(obstacle), 1);
-                    if (lives <= 0) {
-                        console.log('Game Over');
-                        // Reset game or stop animation
-                        // For example, to stop the animation you could return;
-                        return;
+            if(obstacles.length>0 && player) {
+                obstacles.forEach(obstacle => {
+                    if (obstacle.position.distanceTo(player.position) < 1) {
+                        console.log('Collision Detected');
+                        lives -= 1;
+                        document.getElementById('lives').innerText = '❤️'.repeat(lives);
+                        scene.remove(obstacle);
+                        obstacles.splice(obstacles.indexOf(obstacle), 1);
+                        if (lives <= 0) {
+                            console.log('Game Over');
+                            // Reset game or stop animation
+                            // For example, to stop the animation you could return;
+                            return;
+                        }
                     }
-                }
-            });
+                });
+            }
+            
 
             renderer.render(scene, camera);
             lastTime = time;
