@@ -26,7 +26,7 @@
         let scene, camera, renderer, player, platform, clock, obstacles = [];
         let lives = 3;
         let score = 0;
-        const playerSpeed = 5, jumpHeight = 5;
+        const playerSpeed = 5, jumpHeight = 7;
         let jumping = false, playerVelocityY = 0, lastTime = 0;
 
         function init() {
@@ -86,7 +86,9 @@
             document.addEventListener('keyup', onDocumentKeyUp, false);
             document.addEventListener('mousemove', onDocumentMouseMove, false);
 
-            spawnObstacle();
+            setTimeout(() => {
+                spawnObstacle();
+            }, 5000);
         }
 
         let keysPressed = {};
