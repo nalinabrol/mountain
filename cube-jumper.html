@@ -66,13 +66,14 @@
             platform.receiveShadow = true;
             scene.add(platform);
 
+
             // Player cube
-            const playerGeometry = new THREE.BoxGeometry(1, 1, 1);
-            const playerMaterial = new THREE.MeshLambertMaterial({ color: 0x00ff00 });
-            player = new THREE.Mesh(playerGeometry, playerMaterial);
-            player.castShadow = true;
-            player.position.y = 1;
-            scene.add(player);
+            const gltfLoader = new THREE.GLTFLoader();
+            gltfLoader.load('https://devday2.s3.ap-south-1.amazonaws.com/Duck.glb', function (gltf) {
+                player = gltf.scene;
+                player.position.set(0, 0.5, 0); // Set the initial position of the green cube
+                scene.add(player);
+            });
 
             camera.position.set(0, 5, 15);
             camera.lookAt(platform.position);
