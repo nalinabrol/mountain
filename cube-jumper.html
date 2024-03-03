@@ -50,12 +50,12 @@
             // Skybox
             const loader = new THREE.CubeTextureLoader();
             const texture = loader.load([
-                'https://devday2.s3.ap-south-1.amazonaws.com/SnowMountain/px.png', //  px
-                'https://devday2.s3.ap-south-1.amazonaws.com/SnowMountain/nx.png', //  nx
-                'https://devday2.s3.ap-south-1.amazonaws.com/SnowMountain/py.png', //  py
-                'https://devday2.s3.ap-south-1.amazonaws.com/SnowMountain/ny.png', //  ny
-                'https://devday2.s3.ap-south-1.amazonaws.com/SnowMountain/pz.png', //  pz
-                'https://devday2.s3.ap-south-1.amazonaws.com/SnowMountain/nz.png', //  nz
+                'https://devday2.s3.ap-south-1.amazonaws.com/CloudySky/px.png', //  px
+                'https://devday2.s3.ap-south-1.amazonaws.com/CloudySky/nx.png', //  nx
+                'https://devday2.s3.ap-south-1.amazonaws.com/CloudySky/py.png', //  py
+                'https://devday2.s3.ap-south-1.amazonaws.com/CloudySky/ny.png', //  ny
+                'https://devday2.s3.ap-south-1.amazonaws.com/CloudySky/pz.png', //  pz
+                'https://devday2.s3.ap-south-1.amazonaws.com/CloudySky/nz.png', //  nz
             ]);
             scene.background = texture;
 
@@ -69,7 +69,7 @@
 
             // Player cube
             const gltfLoader = new THREE.GLTFLoader();
-            gltfLoader.load('https://devday2.s3.ap-south-1.amazonaws.com/monkey_warrior.glb', function (gltf) {
+            gltfLoader.load('https://devday2.s3.ap-south-1.amazonaws.com/dormammu.glb', function (gltf) {
                 player = gltf.scene;
                 player.scale.set(0.2, 0.2, 0.2);
                 player.position.set(0, 0.5, 0); // Set the initial position of the green cube
