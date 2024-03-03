@@ -184,6 +184,24 @@
                         obstacles.splice(obstacles.indexOf(obstacle), 1);
                         if (lives <= 0) {
                             console.log('Game Over');
+                            const fullScreenDiv = document.createElement('div');
+                            fullScreenDiv.style.position = 'fixed';
+                            fullScreenDiv.style.top = '0';
+                            fullScreenDiv.style.left = '0';
+                            fullScreenDiv.style.width = '100vw';
+                            fullScreenDiv.style.height = '100vh';
+                            fullScreenDiv.style.backgroundColor = 'black';
+                            document.body.appendChild(fullScreenDiv);
+
+                            const gameOverScreen = document.createElement('div');
+                            gameOverScreen.style.position = 'absolute';
+                            gameOverScreen.style.top = '50vh';
+                            gameOverScreen.style.left = '50vw';
+                            gameOverScreen.style.transform = 'translate(-50%, -50%)';
+                            gameOverScreen.style.color = 'red';
+                            gameOverScreen.style.fontSize = '48px';
+                            gameOverScreen.innerText = 'Game Over';
+                            fullScreenDiv.appendChild(gameOverScreen);
                             // Reset game or stop animation
                             // For example, to stop the animation you could return;
                             return;
