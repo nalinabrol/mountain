@@ -69,7 +69,7 @@
 
             // Player cube
             const gltfLoader = new THREE.GLTFLoader();
-            gltfLoader.load('https://devday2.s3.ap-south-1.amazonaws.com/dormammu.glb', function (gltf) {
+            gltfLoader.load('https://devday2.s3.ap-south-1.amazonaws.com/tarisland_-_dragon_high_poly.glb', function (gltf) {
                 player = gltf.scene;
                 player.scale.set(0.2, 0.2, 0.2);
                 player.position.set(0, 0.5, 0); // Set the initial position of the green cube
@@ -145,9 +145,9 @@
             if (jumping) {
                 player.position.y += playerVelocityY * delta;
                 playerVelocityY -= 9.8 * delta; // gravity
-                if (player.position.y <= 1) {
+                if (player.position.y <= 0.5) {
                     jumping = false;
-                    player.position.y = 1;
+                    player.position.y = 0.5;
                 }
             }
 
